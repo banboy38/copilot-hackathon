@@ -24,7 +24,7 @@ export default function NavBar({setIsDark, isDark}){
                 <FaBell size={25}/>
 
                 {/* Avatar */}
-                <div className=" md:hidden rounded-full w-[1.6rem] h-[1.6rem] bg-[#e8e8e8] text-[#4d4d4d] dark:text-[#cecece] dark:bg-[#4D4D4D] flex justify-center items-center overflow-hidden text-sm">
+                <div className=" md:hidden rounded-full w-[1.6rem] h-[1.6rem] bg-[#e8e8e8] text-[#4d4d4d] dark:text-[#cecece] dark:bg-[#4D4D4D] flex justify-center items-center overflow-hidden text-sm ease-out duration-300">
                     A
                 </div>
 

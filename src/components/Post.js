@@ -10,7 +10,7 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
             <div className="flex items-center gap-2 p-1">
                 
                 {/* Avatar */}
-                <div className=" rounded-full w-[2rem] h-[2rem] bg-[#e8e8e8] text-[#4d4d4d] dark:text-[#cecece] dark:bg-[#4D4D4D] flex justify-center items-center overflow-hidden text-sm">
+                <div className=" rounded-full w-[2rem] h-[2rem] bg-[#e8e8e8] text-[#4d4d4d] dark:text-[#cecece] dark:bg-[#4D4D4D] flex justify-center items-center overflow-hidden text-sm ease-out duration-300">
                     P
                 </div>
 

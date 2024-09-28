@@ -106,7 +106,7 @@ export default function Home({setIsDark, isDark}) {
             </div>
 
             {/* Proposals Posted by You */}
-            <div className="bg-[#F7F7F7] dark:bg-[#252525] h-[2rem] rounded-md flex items-center justify-between px-4 ">
+            <div className="bg-[#F7F7F7] dark:bg-[#252525] h-[2rem] rounded-md flex items-center justify-between px-4 ease-out duration-300 ">
 
               <div>
                 Proposals posted by you
@@ -119,7 +119,7 @@ export default function Home({setIsDark, isDark}) {
             </div>
 
             {/* Response on your proposal */}
-            <div className="bg-[#F7F7F7] dark:bg-[#252525] h-[2rem] rounded-md flex items-center justify-between px-4 ">
+            <div className="bg-[#F7F7F7] dark:bg-[#252525] h-[2rem] rounded-md flex items-center justify-between px-4 ease-out duration-300 ">
 
               <div>
                 Response on your proposal
