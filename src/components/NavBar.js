@@ -25,7 +25,7 @@ export default function NavBar({setIsDark, isDark}){
 
                 {/* Avatar */}
                 <div className=" md:hidden rounded-full w-[1.6rem] h-[1.6rem] bg-[#e8e8e8] text-[#4d4d4d] dark:text-[#cecece] dark:bg-[#4D4D4D] flex justify-center items-center overflow-hidden text-sm">
-                    U
+                    A
                 </div>
 
             </div>
