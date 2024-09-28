@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import Post from "@/components/Post";
 import SubmitButton from "@/components/SubmitButton";
 import localFont from "next/font/local";
+import Image from "next/image";
 
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
@@ -55,7 +56,9 @@ export default function Home({setIsDark, isDark}) {
             <div className="relative">
 
               {/* Cover */}
-              <img src="/Frame 8.svg" width={'100%'}/>
+              <div className="h-[6rem]">
+                <Image src="/Frame 8.svg" width={1000} height={50}/>
+              </div>
               
               {/* Image Circle */}
               <div className=" w-[7rem] h-[7rem] bg-white absolute -bottom-14 left-6 rounded-full overflow-hidden flex justify-center items-center">
