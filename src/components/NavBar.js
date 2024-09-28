@@ -7,7 +7,7 @@ import { Classic, Simple } from "@theme-toggles/react"
 export default function NavBar({setIsDark, isDark}){
     return(
         // Parent div
-        <div className="bg-white z-50 dark:bg-[#171717] text-[#4D4D4D] dark:text-[#FFFFFF] w-full h-[3rem] flex justify-between items-center fixed px-6 md:px-20 shadow-md ease-out duration-300">
+        <div className="bg-white z-50 dark:bg-[#171717] text-[#4D4D4D] w-full h-[3rem] flex justify-between items-center fixed px-6 md:px-20 shadow-md ease-out duration-300">
 
             {/* Logo */}
             <img width={150} className="-ml-2" src="/logo.svg"/>

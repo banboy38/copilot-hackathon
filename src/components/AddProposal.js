@@ -16,10 +16,10 @@ export default function AddProposal({func}){
         <div className="relative">
 
             {/* greyed out div */}
-            <div className="bg-[rgba(97,97,97,0.55)] fixed top-0 left-0 h-[100vh] w-[100vw] z-[51] flex justify-center md:justify-end items-center p-6 md:pr-4 ">
+            <div className="bg-[rgba(97,97,97,0.55)] fixed top-0 left-0 h-[100vh] w-[100vw] z-[51] flex justify-center md:justify-end items-center p-6 md:p-0 ">
 
                 {/* Notification Box */}
-                <div className=" bg-white dark:bg-[#171717] ease-out duration-300 dark:text-[#ffffff] w-full md:w-[40%] min-h-[60%] md:min-h-[90%] z-[52] rounded-xl md:rounded-r-none border-l-4 border-r-4 md:border-r-0 border-[#9181F4] px-4 py-4 flex flex-col gap-4">
+                <div className=" bg-white dark:bg-[#171717] ease-out duration-300 dark:text-[#ffffff] w-full md:w-[40%] min-h-[60%] md:min-h-[80%] z-[52] rounded-xl md:rounded-r-none border-l-4 border-r-4 md:border-r-0 border-[#9181F4] px-4 py-4 md:pr-10 flex flex-col gap-4">
                     
                     {/* Close Button */}
                     <div className="flex justify-end items-center">
@@ -31,7 +31,8 @@ export default function AddProposal({func}){
                         Add Proposal
                     </div>
 
-                    <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col gap-2">
+                    {/* Main Form */}
+                    <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col gap-2 px-16">
                         
                         {/* Title */}
                         <TextBox name={'title'} placeholder={'Title'}/>
@@ -49,7 +50,7 @@ export default function AddProposal({func}){
                         <div className="flex items-center justify-between gap-2">
                             
                             {/* Textbox */}
-                            <div className="w-[86%]">
+                            <div className="w-[91%]">
                                 <input id={`skills`} name={'skills'} placeholder={'Skills'} className="bg-[#F3F1FF] dark:bg-[#252525] focus:scale-[1.02] ease-out duration-150" type="text"/>
                             </div>
                             
@@ -69,7 +70,7 @@ export default function AddProposal({func}){
 
                                     document.getElementById('skills').value = "";
                                 }} 
-                                className="bg-[linear-gradient(45deg,#9181F4,#5038ED)] text-white w-[2.4rem] h-[2.4rem] rounded-lg flex justify-center items-center active:scale-[0.98] hover:scale-[1.02] ease-out duration-150"
+                                className="bg-[linear-gradient(45deg,#9181F4,#5038ED)] text-white w-[2.4rem] h-[2.4rem] rounded-lg flex justify-center items-center active:scale-[0.95] hover:scale-[1.05] ease-out duration-150 cursor-pointer"
                             >
                                     <RiAddLine size={20}/>
                             </div>

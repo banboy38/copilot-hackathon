@@ -29,7 +29,7 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                 </div>
 
                 {/* Posted time */}
-                <div className="flex items-start text-sm  -mt-4 ml-auto text-[10px]">
+                <div className="flex items-start text-xs  -mt-4 ml-auto text-[10px]">
                     {posted}h ago
                 </div>
             </div>
@@ -85,7 +85,7 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                         <SubmitButton text={'Apply'}/>
                     </div>
 
-                    <div className="text-xs">
+                    <div className="text-sm">
                         Deadline: {deadline}
                     </div>
 
