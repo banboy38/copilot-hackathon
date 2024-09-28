@@ -32,7 +32,7 @@ export default function AddProposal({func}){
                     </div>
 
                     {/* Main Form */}
-                    <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col gap-2 px-16">
+                    <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col gap-2 px-10">
                         
                         {/* Title */}
                         <TextBox name={'title'} placeholder={'Title'}/>
