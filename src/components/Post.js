@@ -69,9 +69,9 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                     {/* List of skills */}
                     <div className="flex gap-1 flex-wrap w-full">
                         {
-                            skills.map((skill)=>{
+                            skills.map((skill, idx)=>{
                                 return(
-                                    <Tags name={skill}/>
+                                    <Tags key={idx} name={skill}/>
                                 )
                             })
                         }
