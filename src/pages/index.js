@@ -62,7 +62,7 @@ export default function Home({setIsDark, isDark}) {
               
               {/* Image Circle */}
               <div className=" w-[7rem] h-[7rem] bg-white absolute -bottom-14 left-6 rounded-full overflow-hidden flex justify-center items-center">
-                <div className="w-[6.7rem] h-[6.7rem] rounded-full overflow-hidden bg-red-900">
+                <div className="w-[6.7rem] h-[6.7rem] rounded-full overflow-hidden">
                   <img src="/IMG_20211023_151530-01.jpeg"/>
                 </div>
               </div>
