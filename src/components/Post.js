@@ -1,7 +1,7 @@
 import SubmitButton from "./SubmitButton";
 import Tags from "./Tags";
 
-export default function Post({name = 'Priyank Bhandari', post = "Manager", posted = 10, desc = 'We have a website ready but want to add another page before demo need to have a design ready for the webpage', heading = 'A Design', client = "Suzlon", deadline = '26 Dec', skills = ['Figma', 'UI Design', 'UX Design']}){
+export default function Post({name = 'Priyank Bhandari', post = "Manager", posted = 10, desc = 'We need to create a few slides for explaining the needs of Data Governance for a client', heading = 'PPT for Data Governance Proposal', client = "Suzlon", deadline = '2024-12-31', skills = ['PPT', 'Data Governance', 'Business Analysis'], tasks = ['Create a ppt', 'Analyse client data', 'Provide a viable solution']}){
     return(
         // Parent div
         <div className=" border border-[#DDDDDD] dark:border-[#323232] rounded-lg w-full  p-4 flex flex-col gap-2 ease-out duration-300">
@@ -23,9 +23,9 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                     </div>
 
                     {/* Post */}
-                    <div className="text-[10px]">
+                    {/* <div className="text-[10px]">
                         {post}
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Posted time */}
@@ -60,6 +60,19 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                     {desc}
                 </div>
 
+                {/* Tasks */}
+                <div className="w-full">
+                    <ul className="w-full text-sm">
+                        {
+                            tasks.map((task, idx)=>{
+                                return(
+                                    <li className="ml-1" key={idx}>- {task}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+
                 {/* Skills */}
                 <div className="w-full flex flex-col gap-1">
 
@@ -76,8 +89,8 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                             })
                         }
                     </div>
-                </div>
-                
+                </div>                
+
                 {/* Apply and deadline */}
                 <div className="flex justify-between items-center w-full">
 
@@ -90,6 +103,7 @@ export default function Post({name = 'Priyank Bhandari', post = "Manager", poste
                     </div>
 
                 </div>
+                
 
             </div>
             

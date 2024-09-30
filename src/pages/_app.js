@@ -1,12 +1,48 @@
 import "@/styles/globals.css";
-import { useState } from "react";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [isDark, setIsDark] = useState(true)
+  const [show, setShow] = useState(null)
 
-  return(
-    <div className={isDark?`dark`:``}>
-      <Component setIsDark={setIsDark} isDark={isDark} {...pageProps} />
-    </div>
-  )
+  useEffect(() => {
+    
+    // console.log(Cookies.get('username'));
+    
+
+    if(Cookies.get('username') && window.location.pathname === '/login'){
+      window.location.assign("/")
+      return ()=>{}
+  
+    }
+
+    if(!Cookies.get('username') && window.location.pathname != '/login'){
+      window.location.assign("/login")
+      return ()=>{}
+    }
+
+    setShow(true)
+    
+    return ()=>{}
+    
+  }, [])
+  
+  if(show === true ){
+    return(
+      <div className={isDark?`dark`:``}>
+        <Component setIsDark={setIsDark} isDark={isDark} {...pageProps} />
+      </div>
+    )
+  }
+
+  else{
+    return(
+      <div className={isDark?`dark`:``}>
+        
+      </div>
+    )
+  }
+  
+  
 }

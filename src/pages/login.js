@@ -1,10 +1,42 @@
 import PasswordBox from "@/components/PasswordBox";
 import SubmitButton from "@/components/SubmitButton";
 import TextBox from "@/components/TextBox";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 // Login Page
 export default function Login({setIsDark}){
     
+    const [password, setPassword] = useState("")
+    const [wrong, setWrong] = useState(false)
+
+    function login(e){
+
+        e.preventDefault()
+        
+        
+        axios.post('/api/login',{
+            username: document.getElementById('username')?.value,
+            password: password
+        })
+        .then((res)=>{
+            // console.log( res.data );
+            Cookies.set('username', res.data.username)         
+            Cookies.set('post', res.data.post)
+            Cookies.set('location', res.data.location)            
+
+            window.location.assign('/')
+        })
+        .catch((err)=>{
+            
+            
+            setPassword("")
+            setWrong(true)
+            console.log(err);            
+        })
+    }
+
     return(
         // Parent Div
         <div className="bg-white dark:bg-darkMode dark:text-white h-[100vh] flex ease-out duration-300">
@@ -28,15 +60,20 @@ export default function Login({setIsDark}){
                 </div>
 
                 {/* Form */}
-                <form onSubmit={(e)=>{e.preventDefault()}} className="flex flex-col w-[90%] md:w-[60%] justify-center items-center gap-4">
-
+                <form onSubmit={(e)=>{login(e)}} className="flex flex-col w-[90%] md:w-[60%] justify-center items-center gap-4">
+                    
                     <div className="flex flex-col gap-2 w-full">
 
+                        {
+                            wrong&&
+                            <div className="text-red-600 text-xs">Wrong Credentials</div>
+                        }
+
                         {/* Username */}
-                        <TextBox placeholder={'Username'} name={'username'}/>
+                        <TextBox placeholder={'Username'} name={'username'} id={'username'}/>
 
                         {/* Password */}
-                        <PasswordBox name={'password'}/>
+                        <input name={'password'} value={password} onChange={(e)=>{setPassword(e.target.value)}} placeholder="Password" className="bg-[#F3F1FF] dark:bg-[#252525] focus:scale-[1.02] ease-out duration-150" type="password"/>
                     </div>
 
                     <div className="flex flex-col w-[40%]">

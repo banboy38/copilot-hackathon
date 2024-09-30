@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@nextui-org/avatar": "^2.0.33",
+    "@supabase/supabase-js": "^2.45.4",
     "@theme-toggles/react": "^4.1.0",
+    "axios": "^1.7.7",
+    "js-cookie": "^3.0.5",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",

@@ -2,9 +2,11 @@ import AddProposal from "@/components/AddProposal";
 import NavBar from "@/components/NavBar";
 import Post from "@/components/Post";
 import SubmitButton from "@/components/SubmitButton";
+import axios from "axios";
+import Cookies from "js-cookie";
 import localFont from "next/font/local";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
@@ -24,6 +26,30 @@ export default function Home({setIsDark, isDark}) {
 
   // Add Proposal Toggle
   const [proposalToggle, setProposalToggle] = useState(false)
+  const [posts, setPosts] = useState([])
+
+  const [currUser, setcurrUser] = useState(null)
+  const [currPost, setcurrPost] = useState(null)
+  const [currLocation, setcurrLocation] = useState(null)
+
+  useEffect(() => {
+    setcurrUser(Cookies.get('username'))
+    setcurrPost(Cookies.get('post'))
+    setcurrLocation(Cookies.get('location'))
+  
+  }, [])
+
+  useEffect(()=>{
+    axios.post('/api/posts')
+    .then((res)=>{
+      console.log(res.data.data.data)  
+      setPosts(res.data.data.data)
+    })
+    .catch((err)=>{
+      console.log(err)      
+    })
+  }, [])
+  
 
   return (
 
@@ -49,11 +75,20 @@ export default function Home({setIsDark, isDark}) {
           <div className="w-full md:w-[40%] lg:w-[20%]">
             <SubmitButton func={()=>{setProposalToggle(true)}} text={'Add Proposal'}/>
           </div>
-
+          {
+            posts.map((post,idx)=>{
+              let p = "s,f,s,s"
+              console.log(p.split(','))
+              
+              return(
+                <Post deadline={post.deadline} name={post.userID} desc={post.description} heading={post.heading} skills={post.skill.split(',')} client={post.Client} tasks={[]} key={idx} />
+              )
+            })
+          }
           <Post/>
+          {/* <Post/>
           <Post/>
-          <Post/>
-          <Post/>
+          <Post/> */}
 
         </div>
 
@@ -75,7 +110,7 @@ export default function Home({setIsDark, isDark}) {
               {/* Image Circle */}
               <div className=" w-[7rem] h-[7rem] bg-white absolute -bottom-14 left-6 rounded-full overflow-hidden flex justify-center items-center">
                 <div className="w-[6.7rem] h-[6.7rem] rounded-full overflow-hidden">
-                  <img src="/IMG_20211023_151530-01.jpeg"/>
+                  <img src="/profile.jpg"/>
                 </div>
               </div>
 
@@ -86,12 +121,12 @@ export default function Home({setIsDark, isDark}) {
               
               {/* Name */}
               <div className="font-bold text-2xl lg:text-3xl text-[#6E5AF0]">
-                Anirban Aditya Halder
+                {currUser}
               </div>
 
               {/* Position */}
               <div className="font-semibold text-base lg:text-xl">
-                Software Engineering Analyst
+                {currPost}
               </div>
 
               {/* Company Branch */}
@@ -101,7 +136,7 @@ export default function Home({setIsDark, isDark}) {
 
               {/* City */}
               <div className="text-xs text-[#979797]">
-                Bangalore
+                {currLocation}
               </div>
 
 
@@ -148,7 +183,14 @@ export default function Home({setIsDark, isDark}) {
           <div className="flex items-center gap-3 hover:underline select-none cursor-pointer mt-auto">
             <RiLogoutBoxRLine/>
 
-            <div className="text-sm">
+            <div onClick={()=>{
+                Cookies.remove('username')
+                Cookies.remove('post')
+                Cookies.remove('location')
+                window.location.reload()
+              }} 
+              className="text-sm"
+            >
               Logout
             </div>
 
