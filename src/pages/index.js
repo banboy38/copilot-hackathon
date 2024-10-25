@@ -75,7 +75,7 @@ export default function Home({setIsDark, isDark}) {
           <div className="w-full md:w-[40%] lg:w-[20%]">
             <SubmitButton func={()=>{setProposalToggle(true)}} text={'Add Proposal'}/>
           </div>
-          {
+          {/* {
             posts.map((post,idx)=>{
               let p = "s,f,s,s"
               console.log(p.split(','))
@@ -84,11 +84,10 @@ export default function Home({setIsDark, isDark}) {
                 <Post deadline={post.deadline} name={post.userID} desc={post.description} heading={post.heading} skills={post.skill.split(',')} client={post.Client} tasks={[]} key={idx} />
               )
             })
-          }
+          } */}
+
+          <Post deadline={"28-10-2024"} name={"banboy38"} desc={"I want DoTA players"} heading={"DoTA Players Hiring"} skills={ ["Mid Lane", "Off Lane"] } client={"Chempui"} tasks={["Tank", "Position 1"]} />
           <Post/>
-          {/* <Post/>
-          <Post/>
-          <Post/> */}
 
         </div>
 

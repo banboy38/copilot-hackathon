@@ -7,18 +7,25 @@ const supabase = createClient('https://ipddesjrbptlujlftfln.supabase.co', 'eyJhb
 export default async function handler(req, res) {
   // console.log(req.body);
 
-  let user = await supabase.from('Users').select().eq("Name", req.body.username)
-  
-  if(user.data.length === 0){
-    res.status(302).json({error: "Wrong username"})
+  if(req.body.username === "ronin" && req.body.password === "ronin@123"){
+    res.status(200).json({ username: 'ronin', post: "CEO", location: "Bangalore" })
   }
-  
-  if(user.data[0].Password === req.body.password)(
-    res.status(200).json({ username: user.data[0].Name, post: user.data[0].Role, location: user.data[0].Location })    
-  )
   else{
-    res.status(302).json({error: "Wrong Password"})
+    res.status(302).json({error: "Wrong credentials"})
   }
+
+  // let user = await supabase.from('Users').select().eq("Name", req.body.username)
+  
+  // if(user.data.length === 0){
+  //   res.status(302).json({error: "Wrong username"})
+  // }
+  
+  // if(user.data[0].Password === req.body.password)(
+  //   res.status(200).json({ username: user.data[0].Name, post: user.data[0].Role, location: user.data[0].Location })    
+  // )
+  // else{
+  //   res.status(302).json({error: "Wrong Password"})
+  // }
   
   
   
