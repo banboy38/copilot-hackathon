@@ -86,7 +86,7 @@ export default function Home({setIsDark, isDark}) {
             })
           } */}
 
-          <Post deadline={"28-10-2024"} name={"banboy38"} desc={"I want DoTA players"} heading={"DoTA Players Hiring"} skills={ ["Mid Lane", "Off Lane"] } client={"Chempui"} tasks={["Tank", "Position 1"]} />
+          <Post posted={3} deadline={"28-10-2024"} name={"banboy38"} desc={"I want DoTA players"} heading={"DoTA Players Hiring"} skills={ ["Mid Lane", "Off Lane"] } client={"Chempui"} tasks={["Tank", "Position 1"]} />
           <Post/>
 
         </div>
